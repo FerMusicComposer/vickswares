@@ -1,18 +1,17 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using ViksWares;
 
-namespace csharp
+namespace ViksWaresTests
 {
     [TestFixture]
     public class ViksWaresTest
     {
         [Test]
-        public void foo()
+        public void Foo()
         {
             IList<Item> Items = new List<Item> { new Item { Name = "foo", SellBy = 0, Value = 0 } };
-            ViksWares app = new ViksWares(Items);
+            ViksWares.ViksWares app = new ViksWares.ViksWares(Items);
             app.UpdateValue();
-            Assert.AreEqual("fixme", Items[0].Name);
+            Assert.That(Items[0].Name, Is.EqualTo("fixme"));
         }
     }
 }

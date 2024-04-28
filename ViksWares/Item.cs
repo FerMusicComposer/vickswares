@@ -1,4 +1,4 @@
-﻿namespace csharp
+﻿namespace ViksWares
 { 
     public class Item
     {
@@ -10,10 +10,5 @@
         {
             return this.Name + ", " + this.SellBy + ", " + this.Value;
         }  
-    }
-
-    public class RefrigeratedItem : Item
-    {
-        
     }
 }
