@@ -7,7 +7,7 @@ namespace ViksWares.Application;
 
 public class ValueUpdaterService
 {
-    private NormalItemValueUpdater _normalItem = new NormalItemValueUpdater();
+    private NormalItemValueUpdater _normalItem = new();
 
     private readonly Dictionary<Func<Item, bool>, Func<IValueUpdater>> _valueUpdaterMap = new()
     {
@@ -18,6 +18,10 @@ public class ValueUpdaterService
         {
             item => item.Name.Contains("Concert tickets to Talkins Festival", System.StringComparison.CurrentCultureIgnoreCase),
             () => new ConcertTicketsValueUpdater()
+        },
+        {
+            item => item.Name.Contains("Refrigerated", System.StringComparison.CurrentCultureIgnoreCase),
+            () => new RefrigeratedValueUpdater()
         }
     };
     
