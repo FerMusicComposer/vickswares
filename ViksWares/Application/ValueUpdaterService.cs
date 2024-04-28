@@ -1,22 +1,35 @@
-﻿using ViksWares.Application.Abstractions;
+﻿using System;
+using System.Collections.Generic;
+using ViksWares.Application.Abstractions;
 using ViksWares.Models;
 
 namespace ViksWares.Application;
 
 public class ValueUpdaterService
 {
-    private ParmigianoValueUpdater _parmigiano = new ParmigianoValueUpdater();
     private NormalItemValueUpdater _normalItem = new NormalItemValueUpdater();
+
+    private readonly Dictionary<Func<Item, bool>, Func<IValueUpdater>> _valueUpdaterMap = new()
+    {
+        {
+            item => item.Name.Contains("Parmigiano", System.StringComparison.CurrentCultureIgnoreCase),
+            () => new ParmigianoValueUpdater()
+        },
+        {
+            item => item.Name.Contains("Concert tickets to Talkins Festival", System.StringComparison.CurrentCultureIgnoreCase),
+            () => new ConcertTicketsValueUpdater()
+        }
+    };
     
     public void UpdateItemValue(Item item)
     {
-        if (item.Name.Contains("Parmigiano"))
+        foreach (var updater in _valueUpdaterMap)
         {
-            _parmigiano.UpdateValue(item);
+            if (!updater.Key(item)) continue;
+            
+            updater.Value().UpdateValue(item);
+            return;
         }
-        else
-        {
-            _normalItem.UpdateValue(item);
-        }
+        _normalItem.UpdateValue(item);
     }
 }
