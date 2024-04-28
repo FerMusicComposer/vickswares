@@ -22,6 +22,10 @@ public class ValueUpdaterService
         {
             item => item.Name.Contains("Refrigerated", System.StringComparison.CurrentCultureIgnoreCase),
             () => new RefrigeratedValueUpdater()
+        },
+        {
+            item => item.Name.Contains("Saffron", System.StringComparison.CurrentCultureIgnoreCase),
+            () => new SaffronValueUpdater()
         }
     };
     

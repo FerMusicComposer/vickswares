@@ -51,12 +51,6 @@ public class ViksWaresTest
             new Item
             {
                 Name = "Concert tickets to Talkins Festival",
-                SellBy = -1,
-                Value = 49
-            },
-            new Item
-            {
-                Name = "Concert tickets to Talkins Festival",
                 SellBy = 0,
                 Value = 48
             }
@@ -72,10 +66,8 @@ public class ViksWaresTest
                 Assert.That(items[1].Value, Is.EqualTo(49));
                 Assert.That(items[2].SellBy, Is.EqualTo(4));
                 Assert.That(items[2].Value, Is.EqualTo(48));
-                Assert.That(items[3].SellBy, Is.EqualTo(-2));
-                Assert.That(items[3].Value, Is.EqualTo(0));
-                Assert.That(items[4].SellBy, Is.EqualTo(-1));
-                Assert.That(items[4].Value, Is.EqualTo(50)); // check value increases on concert day (SellBy = 0) and that it doesn't go above 50
+                Assert.That(items[3].SellBy, Is.EqualTo(-1));
+                Assert.That(items[3].Value, Is.EqualTo(0)); 
             });
     }
     

@@ -8,7 +8,7 @@
 
         public override string ToString()
         {
-            return this.Name + ", " + this.SellBy + ", " + this.Value;
+            return $"{Name,-36} {SellBy,-10} {Value,-5}";
         }  
     }
 }

@@ -40,13 +40,13 @@ public static class Program
 
         var app = new global::ViksWares.Application.ViksWares(Items);
         
-        for (var i = 0; i < 31; i++)
+        for (var i = 0; i < 5; i++)
         {
-            Console.WriteLine("-------- day " + i + " --------");
-            Console.WriteLine("name, sellIn, quality");
-            for (var j = 0; j < Items.Count; j++)
+            Console.WriteLine("         -------- day " + (i + 1) + " --------");
+            Console.WriteLine("{0,-36} {1,-10} {2,-5}", "Name", "SellBy", "Value");
+            foreach (var item in Items)
             {
-                Console.WriteLine(Items[j]);
+                Console.WriteLine(item.ToString());
             }
             Console.WriteLine("");
             app.UpdateValue();
