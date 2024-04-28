@@ -1,4 +1,4 @@
-﻿namespace ViksWares
+﻿namespace ViksWares.Models
 { 
     public class Item
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ViksWares.Models;
 
 namespace ViksWares;
 
@@ -37,9 +38,8 @@ public static class Program
             new Item {Name = "Refrigerated milk", SellBy = 3, Value = 6}
         };
 
-        var app = new global::ViksWares.ViksWares(Items);
-
-
+        var app = new global::ViksWares.Application.ViksWares(Items);
+        
         for (var i = 0; i < 31; i++)
         {
             Console.WriteLine("-------- day " + i + " --------");
